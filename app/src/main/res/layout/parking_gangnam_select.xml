@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    // 상단바
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#009247"
+        >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_back"
+            />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 강남구 "
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#ffffff"/>
+
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:background="@drawable/home"
+            />
+
+    </LinearLayout>
+    // 여기까지
+
+    <Spinner
+        android:id="@+id/spn_parking_name"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:background="@drawable/spinner_background"
+        android:entries="@array/parking_name"
+        />
+     // 프레임 레이아웃 영역
+    <FrameLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        // 현대백화점 압구정점 레이아웃
+        <LinearLayout
+            android:id="@+id/linear_hyundai_ap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            >
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="현대백화점 앞구정점"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주소 : 서울특별시 강남구 압구정동 압구정로 165"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영업시간 : 오전 10:30~오후 8:00"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:background="@drawable/hb_ap"
+                />
+        </LinearLayout>
+        // 여기까지
+
+        //  현대백화점 무역센터점 레이아웃
+        <LinearLayout
+            android:id="@+id/linear_hyundai_mu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="현대백화점 무역센터점"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주소 : 서울특별시 강남구 삼성1동 테헤란로 517"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영업시간 : 오전 10:30~오후 8:00"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:background="@drawable/hb_mu"
+                />
+        </LinearLayout>
+        // 여기까지
+
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_noneborder"
+        android:text="이 동"
+        android:textColor="#009247"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        />
+
+</LinearLayout>

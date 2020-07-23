@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    //  로고 들어가는 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009247"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:background="@drawable/parking_man_logo2"
+            />
+
+    </LinearLayout>
+
+    // 검색바 들어가는 리니어 레이아웃
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#009247"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/autotext_search"
+            android:layout_marginTop="50dp"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="  search"
+            android:background="#ffffff"
+            android:layout_marginBottom="50dp"
+            />
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/search"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_local_naxt"
+            android:paddingTop="10dp"
+            android:drawableTop="@drawable/con_korea"
+            android:layout_marginTop="90dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="지역선택"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#009247"
+            android:background="@drawable/btn_noneborder"
+            />
+
+        <Button
+            android:id="@+id/btn_star"
+            android:paddingTop="10dp"
+            android:drawableTop="@drawable/con_star"
+            android:layout_marginTop="90dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="즐겨찾기"
+            android:textColor="#009247"
+            android:background="@drawable/btn_noneborder"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

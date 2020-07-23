@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string-array name="parking_name">
+    <item>▼     주차장 선택 </item>
+    <item>현대백화점 무역센터점 ( 임시 A )</item>
+    <item>현대백화점 압구정점 ( 임시 B )</item>
+</string-array>
+
+
+</resources>

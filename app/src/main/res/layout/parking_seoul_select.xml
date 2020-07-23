@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#009247"
+        >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_back"
+            />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 구   선택 "
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#ffffff"/>
+
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:background="@drawable/home"
+            />
+
+    </LinearLayout>
+
+    // 상단바 밑 배경 입니다 (버튼 9개 들어가는곳)
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/korea"
+        >
+
+        <Button
+            android:id="@+id/btn_gangnam"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_style1"
+            android:text="강남구"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            />
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="강동구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="강북구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="강서구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="관악구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="광진구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="구로구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="금천구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="노원구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="도봉구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="동대문구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="동작구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="마포구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="서대문구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="서초구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="성동구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="성북구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="송파구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="양천구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="영등포구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="용산구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="은평구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="종로구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="중구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+            <Button
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_style1"
+                android:text="중량구"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#d4d4d4"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
