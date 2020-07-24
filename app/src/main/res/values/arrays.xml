@@ -2,10 +2,15 @@
 <resources>
 
 <string-array name="parking_name">
-    <item>▼     주차장 선택 </item>
-    <item>현대백화점 무역센터점 ( 임시 A )</item>
-    <item>현대백화점 압구정점 ( 임시 B )</item>
+    <item>▼ 주차장 선택 </item>
+    <item>▼ 현대백화점 무역센터점 ( 임시 A )</item>
+    <item>▼ 현대백화점 압구정점 ( 임시 B )</item>
 </string-array>
 
+
+    <string-array name="parking_floor">
+        <item>▼ 지하 2층</item>
+        <item>▼ 지하 3층</item>
+    </string-array>
 
 </resources>

@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".Parking_hyundai_ap_select">
+        </activity>
+        <activity android:name=".Parking_hyundai_mu_select">
+        </activity>
         <activity android:name=".Parking_gangnam_select">
         </activity>
         <activity android:name=".Parking_seoul_select">
@@ -17,7 +21,7 @@
         <activity android:name=".Parking_local_select">
         </activity>
         <activity android:name=".Parking_main">
-    </activity>
+        </activity>
         <activity android:name=".Parking_intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

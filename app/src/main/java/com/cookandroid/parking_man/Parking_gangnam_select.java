@@ -60,7 +60,9 @@ public class Parking_gangnam_select extends AppCompatActivity {
                     btn_next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            Intent Intent = new Intent(getApplicationContext(),Parking_hyundai_mu_select.class);
+                            startActivity(Intent);
+                            overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                         }
                     });
 
@@ -74,7 +76,9 @@ public class Parking_gangnam_select extends AppCompatActivity {
                     btn_next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            Intent Intent = new Intent(getApplicationContext(),Parking_hyundai_ap_select.class);
+                            startActivity(Intent);
+                            overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                         }
                     });
 

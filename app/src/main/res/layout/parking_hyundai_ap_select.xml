@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    // 상단바
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#009247"
+        >
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_back"
+            />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 주차장 "
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#ffffff"/>
+
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:background="@drawable/home"
+            />
+
+    </LinearLayout>
+    // 여기까지
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현대백화점 앞구정 점 ( 임시 B )"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+        <RatingBar
+            android:id="@+id/btn_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="1"
+            android:rating="0"
+            android:stepSize="1"
+            />
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spn_parking_floor"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:background="@drawable/spinner_background"
+        android:entries="@array/parking_floor"
+        />
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text=" x 칸중 x 칸이 비어있습니다."
+        />
+
+    <FrameLayout
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:background="@drawable/parking_bg"
+        >
+
+        // 지하3층 레이아웃
+        <LinearLayout
+            android:id="@+id/linear_floor_B3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            >
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ← 3층으로"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_B3_A1"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="A1"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_B3_B1"
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_red"
+                    android:text="B1"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_B3_A2"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="A2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btn_B3_B2"
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="B2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_B3_A3"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="A3"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btn_B3_B3"
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_red"
+                    android:text="B3"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ← 4층으로"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="145dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ←  입구"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        // 여기까지 지하3층 레이아웃
+
+
+        // 지하2층 레이아웃
+        <LinearLayout
+            android:id="@+id/linear_floor_B2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ← 1층으로"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_B2_A1"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="A1"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+
+
+                <Button
+                    android:id="@+id/btn_B2_B1"
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_red"
+                    android:text="B1"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_B2_A2"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="A2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btn_B2_B2"
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="B2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_B2_A3"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_blue"
+                    android:text="A3"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btn_B2_B3"
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/parking_red"
+                    android:text="B3"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ← 3층으로"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="145dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ←  입구"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        // 여기까지 지하2층 레이아웃
+
+
+
+
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btn_refresh"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="새로고침"
+        android:textColor="#009247"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:background="@drawable/btn_noneborder"/>
+
+</LinearLayout>
