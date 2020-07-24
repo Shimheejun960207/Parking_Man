@@ -56,7 +56,7 @@
         >
 
         <Button
-            android:id="@+id/btn_seoul"
+            android:id="@+id/btn_Seoul"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
             android:layout_width="120dp"
@@ -75,7 +75,7 @@
             android:layout_gravity="center">
 
             <Button
-                android:id="@+id/btn_gyeong_gi"
+                android:id="@+id/btn_Gyeong_gi"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
@@ -119,7 +119,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/gyeongsang_north"
+                android:id="@+id/Gyeongsang_north"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:background="@drawable/btn_style1"
@@ -151,7 +151,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/gyeongsang_south"
+            android:id="@+id/Gyeongsang_south"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:background="@drawable/btn_style1"
