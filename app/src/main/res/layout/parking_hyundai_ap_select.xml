@@ -32,8 +32,8 @@
             android:text=" 주차장 "
             android:textStyle="bold"
             android:textSize="30sp"
-            android:textColor="#ffffff"/>
-
+            android:textColor="#ffffff"
+        />
         <Button
             android:id="@+id/btn_home"
             android:layout_marginTop="5dp"
