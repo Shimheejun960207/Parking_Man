@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Parking_hyundai_ap_select extends AppCompatActivity {
 
     private  int park_rumber = 1; // 임시로 부여한 주차장변수
-
+    private  int star_number = 0; // 즐겨찾기 변수
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,8 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         final Button btn_home,btn_back,btn_refresh;  // 상단바 변수
         final Button btn_B2_A1,btn_B2_A2,btn_B2_A3,btn_B2_B1,btn_B2_B2,btn_B2_B3; //지하2층 변수
         Button btn_B3_A1,btn_B3_A2,btn_B3_A3,btn_B3_B1,btn_B3_B2,btn_B3_B3; //지하3층 변수
+        final Button btn_star;
+        btn_star = (Button)findViewById(R.id.btn_star);
 
         Spinner spn_parking_floor;
         final LinearLayout linear_floor_B2; //지하2층 레이아웃
@@ -33,8 +35,7 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         linear_floor_B3 = (LinearLayout)findViewById(R.id.linear_floor_B3);
         spn_parking_floor = (Spinner)findViewById(R.id.spn_parking_floor);
 
-        RatingBar btn_star;
-        btn_star = (RatingBar) findViewById(R.id.btn_star);
+
 
         btn_B2_A1 = (Button) findViewById(R.id.btn_B2_A1);
         btn_B2_A2 = (Button) findViewById(R.id.btn_B2_A2);
@@ -79,11 +80,25 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
          */
 
 
-        btn_star.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+        // 즐겨찾기 버튼 이벤트
+        btn_star.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                Toast toast = Toast.makeText(Parking_hyundai_ap_select.this,"즐겨찾기에 추가되었습니다.",Toast.LENGTH_SHORT);
-                toast.show();
+            public void onClick(View view) {
+
+                if (star_number == 0) { // 0이면 즐겨찾기 안되어있는 상태
+                    Toast toast = Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 추가되었습니다.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    btn_star.setBackgroundResource(R.drawable.star_full);
+                    star_number = 1;
+                }
+                else  // 1이면 즐겨찾기 되어있는 상태
+                {
+                    Toast toast = Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 삭제되었습니다.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    btn_star.setBackgroundResource(R.drawable.star_void);
+                    star_number = 0;
+                }
+
             }
         });
 

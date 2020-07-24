@@ -64,13 +64,12 @@
             android:textStyle="bold"
             android:textSize="20sp"/>
 
-        <RatingBar
+        <Button
             android:id="@+id/btn_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="1"
-            android:rating="0"
-            android:stepSize="1"
+            android:layout_marginTop="10dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/star_void"
             />
 
     </LinearLayout>

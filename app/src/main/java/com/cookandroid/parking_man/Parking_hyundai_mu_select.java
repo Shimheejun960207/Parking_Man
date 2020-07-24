@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Parking_hyundai_mu_select extends AppCompatActivity {
 
     private  int park_rumber = 1; // 임시로 부여한 주차장변수
+    private  int star_number = 0; // 즐겨찾기 변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,8 @@ public class Parking_hyundai_mu_select extends AppCompatActivity {
         linear_floor_B3 = (LinearLayout)findViewById(R.id.linear_floor_B3);
         spn_parking_floor = (Spinner)findViewById(R.id.spn_parking_floor);
 
-        RatingBar btn_star;
-        btn_star = (RatingBar) findViewById(R.id.btn_star);
+        final Button btn_star;
+        btn_star = (Button)findViewById(R.id.btn_star);
 
         btn_B2_A1 = (Button) findViewById(R.id.btn_B2_A1);
         btn_B2_A2 = (Button) findViewById(R.id.btn_B2_A2);
@@ -79,13 +80,32 @@ public class Parking_hyundai_mu_select extends AppCompatActivity {
          */
 
 
-    btn_star.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-        @Override
-        public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-            Toast toast = Toast.makeText(Parking_hyundai_mu_select.this,"즐겨찾기에 추가되었습니다.",Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    });
+        // 즐겨찾기 버튼 이벤트
+        btn_star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (star_number == 0) { // 0이면 즐겨찾기 안되어있는 상태
+                    Toast toast = Toast.makeText(Parking_hyundai_mu_select.this, "즐겨찾기에 추가되었습니다.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    btn_star.setBackgroundResource(R.drawable.star_full);
+                    star_number = 1;
+                }
+                else  // 1이면 즐겨찾기 되어있는 상태
+                {
+                    Toast toast = Toast.makeText(Parking_hyundai_mu_select.this, "즐겨찾기에 삭제되었습니다.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    btn_star.setBackgroundResource(R.drawable.star_void);
+                    star_number = 0;
+                }
+
+            }
+        });
+
+
+
+
+
 
 
         // 스피너 선택하는 이벤트
