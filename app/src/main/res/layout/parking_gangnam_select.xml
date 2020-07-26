@@ -74,7 +74,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="현대백화점 앞구정점"
+                android:text="현대백화점 압구정점"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 />

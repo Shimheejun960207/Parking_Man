@@ -60,7 +60,7 @@
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="현대백화점 앞구정 점 ( 임시 B )"
+            android:text="현대백화점 압구정 점 ( 임시 B )"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
