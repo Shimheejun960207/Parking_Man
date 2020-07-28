@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Parking_main extends AppCompatActivity {
 
     private String[] items = {"현대백화점 무역센터점 (임시A)","현대백화점 앞구정점 (임시 B)"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class Parking_main extends AppCompatActivity {
         autotext_search = (AutoCompleteTextView) findViewById(R.id.autotext_search);
 
 
+        // 자동완성 텍스트뷰 가 출력되는 방식과 안에 들어갈 목록이 들어갑니다 목록은 위에선언한 String[] items 입니다
         ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,items);
         autotext_search.setAdapter(adapter);
 

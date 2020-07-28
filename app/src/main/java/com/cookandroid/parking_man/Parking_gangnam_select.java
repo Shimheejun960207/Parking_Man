@@ -109,9 +109,8 @@ public class Parking_gangnam_select extends AppCompatActivity {
         });
 
 
-
-
     }
+
     // 취소버튼에 애니메이션 추가
     public void onBackPressed() {
 
@@ -120,4 +119,5 @@ public class Parking_gangnam_select extends AppCompatActivity {
         overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
 
     }
+
 }

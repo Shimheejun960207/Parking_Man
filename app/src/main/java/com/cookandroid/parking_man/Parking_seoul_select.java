@@ -54,9 +54,6 @@ public class Parking_seoul_select extends Activity {
         btn_Yeongdeungpo = (Button)findViewById(R.id.btn_Yeongdeungpo);
         btn_Yongsan = (Button)findViewById(R.id.btn_Yongsan);
 
-
-
-
         //강남구 선택 이벤트
         btn_Gangnam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -332,7 +329,6 @@ public class Parking_seoul_select extends Activity {
         });
 
 
-
         // 좌측 상단 뒤로가기 버튼 이벤트
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -350,7 +346,6 @@ public class Parking_seoul_select extends Activity {
                 startActivity(Intent);
             }
         });
-
 
     }
 

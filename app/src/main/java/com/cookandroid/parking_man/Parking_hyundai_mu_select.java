@@ -103,11 +103,6 @@ public class Parking_hyundai_mu_select extends AppCompatActivity {
         });
 
 
-
-
-
-
-
         // 스피너 선택하는 이벤트
         spn_parking_floor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -159,8 +154,6 @@ public class Parking_hyundai_mu_select extends AppCompatActivity {
         });
 
 
-
-
         // 좌측 상단 뒤로가기 버튼 이벤트
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +173,14 @@ public class Parking_hyundai_mu_select extends AppCompatActivity {
         });
 
 
+    }
+
+    // 취소버튼에 애니메이션 추가
+    public void onBackPressed() {
+
+        super.onBackPressed();
+        //화면 전환 애니메이션
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
 
     }
 

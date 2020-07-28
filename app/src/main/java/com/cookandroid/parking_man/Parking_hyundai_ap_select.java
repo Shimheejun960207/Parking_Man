@@ -55,7 +55,6 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         btn_back = (Button)findViewById(R.id.btn_back);
         btn_home = (Button)findViewById(R.id.btn_home);
 
-
         /*
         주차장 빈칸 을 변경하는 방법 (어디까지나 나의 생각)
 
@@ -154,8 +153,6 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         });
 
 
-
-
         // 좌측 상단 뒤로가기 버튼 이벤트
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,4 +172,14 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         });
 
     }
+
+    // 취소버튼에 애니메이션 추가
+    public void onBackPressed() {
+
+        super.onBackPressed();
+        //화면 전환 애니메이션
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+
+    }
+
 }
