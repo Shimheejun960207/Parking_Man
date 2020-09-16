@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    // 상단바
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#009247" >
+
+        <!-- 뒤로가기 버튼 -->
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_back" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 즐겨찾기 "
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#ffffff"/>
+
+        <!-- 홈 버튼 -->
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:background="@drawable/home" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/favorites_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="#D3D3D3"/>
+</LinearLayout>

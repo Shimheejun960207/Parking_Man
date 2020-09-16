@@ -1,25 +1,45 @@
 package com.cookandroid.parking_man;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
+
 public class Parking_hyundai_ap_select extends AppCompatActivity {
 
+    TextView parking_name;  // 주차장 이름
+
+    // ArrayList -> Json으로 변환
+    private static final String SETTINGS_PLAYER_JSON = "settings_item_json";
+
     private  int park_rumber = 1; // 임시로 부여한 주차장변수
-    private  int star_number = 0; // 즐겨찾기 변수
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.parking_hyundai_ap_select);
+
+        final SharedPreferences starValidate = getSharedPreferences("hyundai_ap", 0);
+        final SharedPreferences.Editor editor = starValidate.edit();
 
         final Button btn_home,btn_back,btn_refresh;  // 상단바 변수
         final Button btn_B2_A1,btn_B2_A2,btn_B2_A3,btn_B2_B1,btn_B2_B2,btn_B2_B3; //지하2층 변수
@@ -55,6 +75,20 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         btn_back = (Button)findViewById(R.id.btn_back);
         btn_home = (Button)findViewById(R.id.btn_home);
 
+        parking_name = (TextView)findViewById(R.id.parking_name);
+
+        // 즐겨찾기 여부 검사
+        if(starValidate.contains("star")) {
+            if (favValidate(starValidate)==1) // 1이면 즐겨찾기 되어있는 상태
+                btn_star.setBackgroundResource(R.drawable.star_full);
+            else
+                btn_star.setBackgroundResource(R.drawable.star_void);
+        }
+        else {
+            editor.putInt("star", 0);
+            editor.apply();
+        }
+
         /*
         주차장 빈칸 을 변경하는 방법 (어디까지나 나의 생각)
 
@@ -78,26 +112,31 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
 
          */
 
-
         // 즐겨찾기 버튼 이벤트
         btn_star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String parking = parking_name.getText().toString();  // 주차장 이름
+                FavoritesAction favAction = (FavoritesAction)getApplication();  // 전역변수인 즐겨찾기 기능
+                int validate = favValidate(starValidate);
 
-                if (star_number == 0) { // 0이면 즐겨찾기 안되어있는 상태
-                    Toast toast = Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 추가되었습니다.", Toast.LENGTH_SHORT);
-                    toast.show();
+                if(favAction.starClick(parking, validate)) {
+
+                    Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     btn_star.setBackgroundResource(R.drawable.star_full);
-                    star_number = 1;
-                }
-                else  // 1이면 즐겨찾기 되어있는 상태
-                {
-                    Toast toast = Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 삭제되었습니다.", Toast.LENGTH_SHORT);
-                    toast.show();
-                    btn_star.setBackgroundResource(R.drawable.star_void);
-                    star_number = 0;
-                }
+                    editor.putInt("star", 1);
+                    editor.apply();
 
+                    Log.d(TAG, "Put json");
+
+                } else {
+                    Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                    btn_star.setBackgroundResource(R.drawable.star_void);
+                    editor.putInt("star", 0);
+                    editor.apply();
+
+                    Log.d(TAG, "Put json");
+                }
             }
         });
 
@@ -180,6 +219,12 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         //화면 전환 애니메이션
         overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
 
+    }
+
+    public int favValidate(SharedPreferences starValidate) {
+        int validate;
+        validate = starValidate.getInt("star", 0);
+        return validate;
     }
 
 }

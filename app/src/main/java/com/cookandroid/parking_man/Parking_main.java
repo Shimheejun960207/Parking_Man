@@ -81,7 +81,8 @@ public class Parking_main extends AppCompatActivity {
         btn_star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent Intent = new Intent(getApplicationContext(),Parking_favorites.class);
+                startActivity(Intent);
             }
         });
 
