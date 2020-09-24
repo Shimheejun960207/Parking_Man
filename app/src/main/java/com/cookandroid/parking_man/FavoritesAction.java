@@ -26,8 +26,7 @@ public class FavoritesAction extends Application {
             return true;
         }
         else { // 1이면 즐겨찾기 되어있는 상태
-            int index = array.size()-1;  // 주차장 즐겨찾기 배열리스트의 마지막 index
-            array.remove(index);  // 배열리스트의 마지막 인덱스 데이터 삭제
+            array.remove(parking);  // 배열리스트의 마지막 인덱스 데이터 삭제
             setStringArrayPref(getApplicationContext(), SETTINGS_PLAYER_JSON, array);
 
             return false;

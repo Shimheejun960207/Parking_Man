@@ -78,15 +78,18 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
 
         parking_name = (TextView)findViewById(R.id.parking_name);
 
-        // 즐겨찾기 여부 검사
-        if(starValidate.contains("hyundai_ap")) {
-            if (favValidate(starValidate)==1) // 1이면 즐겨찾기 되어있는 상태
+        // 주차장 이름 변수에 저장
+        final String parking = parking_name.getText().toString();
+
+        // 즐겨찾기 설정 여부 검사
+        if(starValidate.contains(parking)) { // hyundai_ap 주차장의 키값 존재할 경우
+            if (favValidate(starValidate, parking)==1) // 1이면 즐겨찾기 되어있는 상태
                 btn_star.setBackgroundResource(R.drawable.star_full);
             else
                 btn_star.setBackgroundResource(R.drawable.star_void);
         }
-        else {
-            editor.putInt("hyundai_ap", 0);
+        else { // hyundai_ap 주차장의 키값이 존재하지 않을 경우
+            editor.putInt(parking, 0);
             editor.apply();
         }
 
@@ -117,15 +120,13 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         btn_star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String parking = parking_name.getText().toString();  // 주차장 이름
                 FavoritesAction favAction = (FavoritesAction)getApplication();  // 전역변수인 즐겨찾기 기능
-                int validate = favValidate(starValidate);
+                int validate = favValidate(starValidate, parking);
 
                 if(favAction.starClick(parking, validate)) {
-
                     Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     btn_star.setBackgroundResource(R.drawable.star_full);
-                    editor.putInt("hyundai_ap", 1);
+                    editor.putInt(parking, 1);
                     editor.apply();
 
                     Log.d(TAG, "Put json");
@@ -133,7 +134,7 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
                 } else {
                     Toast.makeText(Parking_hyundai_ap_select.this, "즐겨찾기에 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                     btn_star.setBackgroundResource(R.drawable.star_void);
-                    editor.putInt("hyundai_ap", 0);
+                    editor.putInt(parking, 0);
                     editor.apply();
 
                     Log.d(TAG, "Put json");
@@ -222,9 +223,10 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
 
     }
 
-    public int favValidate(SharedPreferences starValidate) {
+    // 즐겨찾기 설정 여부 리턴하는 메소드
+    public int favValidate(SharedPreferences starValidate, String parking) {
         int validate;
-        validate = starValidate.getInt("hyundai_ap", 0);
+        validate = starValidate.getInt(parking, 0);
         return validate;
     }
 
