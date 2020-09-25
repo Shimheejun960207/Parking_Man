@@ -10,6 +10,7 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+// 즐겨찾기 기능에 관련된 메소드가 들어있는 java파일
 public class FavoritesAction extends Application {
     ArrayAdapter<String> adapter;
     ArrayList<String> array = new ArrayList<>();

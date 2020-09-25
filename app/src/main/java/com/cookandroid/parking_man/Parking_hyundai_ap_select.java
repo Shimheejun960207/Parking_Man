@@ -89,7 +89,7 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
                 btn_star.setBackgroundResource(R.drawable.star_void);
         }
         else { // hyundai_ap 주차장의 키값이 존재하지 않을 경우
-            editor.putInt(parking, 0);
+            editor.putInt(parking, 0); // key 값: 주차장명, value 값: 즐겨찾기면 1 아니면 0
             editor.apply();
         }
 

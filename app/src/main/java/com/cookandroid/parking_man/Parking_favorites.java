@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,16 +40,29 @@ public class Parking_favorites extends AppCompatActivity {
         btn_home = (Button)findViewById(R.id.btn_home);
         listView = (ListView)findViewById(R.id.favorites_list);
 
-        FavoritesAction favAction = (FavoritesAction) getApplication();  // 전역변수인 즐겨찾기 기능
+        final FavoritesAction favAction = (FavoritesAction) getApplication();  // 전역변수인 즐겨찾기 기능
         favAction.array = favAction.getStringArrayPref(getApplicationContext(), SETTINGS_PLAYER_JSON);
 
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, favAction.array);
         listView.setAdapter(adapter);
+
         // ListView 클릭 시
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String parking = (String)adapterView.getAdapter().getItem(position); // 클릭한 ListView에 적힌 주차장 이름
 
+                if(parking.equals("현대백화점 무역센터점 ( 임시 A )")) { // 클릭한 listView 주차장이 "현대백화점 무역센터점"일 경우
+                    Intent intent = new Intent(getApplicationContext(), Parking_hyundai_mu_select.class);
+                    startActivity(intent);
+                    finish();
+                } else if(parking.equals("현대백화점 압구정점 ( 임시 B )")) { // 클릭한 listView 주차장이 "현대백화점 압구정점"일 경우
+                    Intent intent = new Intent(getApplicationContext(), Parking_hyundai_ap_select.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(Parking_favorites.this, "해당 주차장이 없습니다.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
