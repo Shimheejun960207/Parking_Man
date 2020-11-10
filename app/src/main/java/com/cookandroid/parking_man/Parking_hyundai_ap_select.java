@@ -16,9 +16,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -32,11 +39,34 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
     private static final String SETTINGS_PLAYER_JSON = "settings_item_json";
 
     private  int park_rumber = 1; // 임시로 부여한 주차장변수
+    private int sensor = 10; // 센서 id
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.parking_hyundai_ap_select);
+
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+                    int sensor_01 = jsonResponse.getInt("sensor_01");
+
+                    if(success) {
+                        Toast.makeText(getApplicationContext(), sensor_01, Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        SensorRequest sensorRequest = new SensorRequest(sensor, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(Parking_hyundai_ap_select.this);
+        queue.add(sensorRequest);
 
         // 즐겨찾기 설정 여부를 저장하는 SharedPreferences인 "starValidate"파일
         final SharedPreferences starValidate = getSharedPreferences("starValidate", 0);

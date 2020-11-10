@@ -1,0 +1,27 @@
+package com.cookandroid.parking_man;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class SensorRequest extends StringRequest {
+
+    // 서버 URL 설정 (PHP 파일 연동)
+    final static private String URL = "http://192.168.0.100/sensor_find.php";
+    private Map<String, String> map;
+
+    public SensorRequest(Integer p_sensor, Response.Listener<String> listener) {
+        super(Method.POST, URL, listener, null);
+
+        map = new HashMap<>();
+        map.put("p_sensor", p_sensor+"");
+    }
+
+    @Override
+    protected Map<String, String> getParams() throws AuthFailureError {
+        return map;
+    }
+}

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.parking_man">
 
+    <!--인터넷 권한 선언-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".FavoritesAction"
         android:allowBackup="true"
