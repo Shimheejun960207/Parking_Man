@@ -13,7 +13,7 @@ public class SensorRequest extends StringRequest {
     final static private String URL = "http://192.168.0.100/sensor_find.php";
     private Map<String, String> map;
 
-    public SensorRequest(Integer p_sensor, Response.Listener<String> listener) {
+    public SensorRequest(int p_sensor, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();

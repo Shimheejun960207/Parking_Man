@@ -33,13 +33,25 @@ import static android.content.ContentValues.TAG;
 
 public class Parking_hyundai_ap_select extends AppCompatActivity {
 
+    // 센서 변수 선언
+    int sensor_01;
+    int sensor_02;
+    int sensor_03;
+    int sensor_04;
+    int sensor_05;
+    int sensor_06;
+
+
     TextView parking_name;  // 주차장 이름
 
     // ArrayList -> Json으로 변환
     private static final String SETTINGS_PLAYER_JSON = "settings_item_json";
 
     private  int park_rumber = 1; // 임시로 부여한 주차장변수
-    private int sensor = 10; // 센서 id
+    private int p_sensor = 10; // 센서 id
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,21 +64,27 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     boolean success = jsonResponse.getBoolean("success");
-                    int sensor_01 = jsonResponse.getInt("sensor_01");
 
-                    if(success) {
-                        Toast.makeText(getApplicationContext(), sensor_01, Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_LONG).show();
-                    }
+                    // DB서버에서 값을 가져옵니다.
+                    // 각각의 센서 변수에 값을 저장합니다.
+                     sensor_01 = jsonResponse.getInt("sensor_01");
+                     sensor_02 = jsonResponse.getInt("sensor_02");
+                     sensor_03 = jsonResponse.getInt("sensor_03");
+                     sensor_04 = jsonResponse.getInt("sensor_04");
+                     sensor_05 = jsonResponse.getInt("sensor_05");
+                     sensor_06 = jsonResponse.getInt("sensor_06");
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         };
-        SensorRequest sensorRequest = new SensorRequest(sensor, responseListener);
+        SensorRequest sensorRequest = new SensorRequest(p_sensor, responseListener);
         RequestQueue queue = Volley.newRequestQueue(Parking_hyundai_ap_select.this);
         queue.add(sensorRequest);
+
+
+
 
         // 즐겨찾기 설정 여부를 저장하는 SharedPreferences인 "starValidate"파일
         final SharedPreferences starValidate = getSharedPreferences("starValidate", 0);
@@ -74,7 +92,7 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
 
         final Button btn_home,btn_back,btn_refresh;  // 상단바 변수
         final Button btn_B2_A1,btn_B2_A2,btn_B2_A3,btn_B2_B1,btn_B2_B2,btn_B2_B3; //지하2층 변수
-        Button btn_B3_A1,btn_B3_A2,btn_B3_A3,btn_B3_B1,btn_B3_B2,btn_B3_B3; //지하3층 변수
+        final Button btn_B3_A1,btn_B3_A2,btn_B3_A3,btn_B3_B1,btn_B3_B2,btn_B3_B3; //지하3층 변수
         final Button btn_star;
         btn_star = (Button)findViewById(R.id.btn_star);
 
@@ -85,8 +103,6 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
         linear_floor_B2 = (LinearLayout)findViewById(R.id.linear_floor_B2);
         linear_floor_B3 = (LinearLayout)findViewById(R.id.linear_floor_B3);
         spn_parking_floor = (Spinner)findViewById(R.id.spn_parking_floor);
-
-
 
         btn_B2_A1 = (Button) findViewById(R.id.btn_B2_A1);
         btn_B2_A2 = (Button) findViewById(R.id.btn_B2_A2);
@@ -122,29 +138,6 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
             editor.putInt(parking, 0); // key 값: 주차장명, value 값: 즐겨찾기면 1 아니면 0
             editor.apply();
         }
-
-        /*
-        주차장 빈칸 을 변경하는 방법 (어디까지나 나의 생각)
-
-        예) 사물이 감지되면  int senser_B2_A1(지하2층 A1자리의 센서값) = 1
-            사물이 감지되지 않으면 i = 0
-            주차장 총칸을 알려주는 변수 int x = 6; //  6칸이다
-            주차장 빈칸을 알려주는 변수 int y = 6; // 처음빈칸은 6칸이다
-
-            if (senser_B1_A1 == 1) // 센서감지
-            {    btn_B2_A1.setBackgroundResource(R.drawable.parking_red);
-
-            // 그 자리의 위젯 배경화면을 빨간색으로 변경시킴
-
-             y--; // 빈칸의 값이 줄어들음
-
-            }
-
-            else // 감지되지않음
-            {   btn_B2_A1.setBackgroundResource(R.drawable.parking_blue);    }
-            //  배경화면을 파란색으로 변경시킴
-
-         */
 
         // 즐겨찾기 버튼 이벤트
         btn_star.setOnClickListener(new View.OnClickListener() {
@@ -189,21 +182,102 @@ public class Parking_hyundai_ap_select extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
 
-                            if (park_rumber == 1)
+                            // oncreate 메소드의 코드를 한번더 실행한다.
+                            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        JSONObject jsonResponse = new JSONObject(response);
+                                        boolean success = jsonResponse.getBoolean("success");
+                                        // DB서버에서 값을 가져옵니다.
+                                        // 각각의 센서 변수에 값을 저장합니다.
+                                        sensor_01 = jsonResponse.getInt("sensor_01");
+                                        sensor_02 = jsonResponse.getInt("sensor_02");
+                                        sensor_03 = jsonResponse.getInt("sensor_03");
+                                        sensor_04 = jsonResponse.getInt("sensor_04");
+                                        sensor_05 = jsonResponse.getInt("sensor_05");
+                                        sensor_06 = jsonResponse.getInt("sensor_06");
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            };
+                            SensorRequest sensorRequest = new SensorRequest(p_sensor, responseListener);
+                            RequestQueue queue = Volley.newRequestQueue(Parking_hyundai_ap_select.this);
+                            queue.add(sensorRequest);
+
+                            // 센서에 사물이 감지되면 주차장 자리가 빨간색으로 변경된다.
+                            // 센서에 감지되지 않는다면 주차장 자리가 파란색으로 변경된다.
+
+                            // A1의 센서 코드 값이 10이면 감지된 것 이다.
+                            if (sensor_01 == 10)
                             {
                                 btn_B2_A1.setBackgroundResource(R.drawable.parking_red);
-                                btn_B2_B2.setBackgroundResource(R.drawable.parking_red);
-                                btn_B2_B1.setBackgroundResource(R.drawable.parking_blue);
-                                btn_B2_B3.setBackgroundResource(R.drawable.parking_blue);
-                                park_rumber--;
+                                btn_B3_A1.setBackgroundResource(R.drawable.parking_red);
                             }
                             else
                             {
                                 btn_B2_A1.setBackgroundResource(R.drawable.parking_blue);
-                                btn_B2_B2.setBackgroundResource(R.drawable.parking_blue);
+                                btn_B3_A1.setBackgroundResource(R.drawable.parking_blue);
+                            }
+                            // A2의 센서 코드 값이 20이면 감지된 것 이다.
+                            if (sensor_02 == 20)
+                            {
+                                btn_B2_A2.setBackgroundResource(R.drawable.parking_red);
+                                btn_B3_A2.setBackgroundResource(R.drawable.parking_red);
+                            }
+                            else
+                            {
+                                btn_B2_A2.setBackgroundResource(R.drawable.parking_blue);
+                                btn_B3_A2.setBackgroundResource(R.drawable.parking_blue);
+                            }
+                            // A3의 센서 코드 값이 30이면 감지된 것 이다.
+                            if (sensor_03 == 30)
+                            {
+                                btn_B2_A3.setBackgroundResource(R.drawable.parking_red);
+                                btn_B3_A3.setBackgroundResource(R.drawable.parking_red);
+                            }
+                            else
+                            {
+                                btn_B2_A3.setBackgroundResource(R.drawable.parking_blue);
+                                btn_B3_A3.setBackgroundResource(R.drawable.parking_blue);
+                            }
+
+                            // B1의 센서 코드 값이 40이면 감지된 것 이다.
+                            if (sensor_04 == 40)
+                            {
                                 btn_B2_B1.setBackgroundResource(R.drawable.parking_red);
+                                btn_B3_B1.setBackgroundResource(R.drawable.parking_red);
+                            }
+                            else
+                            {
+                                btn_B2_B1.setBackgroundResource(R.drawable.parking_blue);
+                                btn_B3_B1.setBackgroundResource(R.drawable.parking_blue);
+                            }
+
+                            // B2의 센서 코드 값이 50이면 감지된 것 이다.
+                            if (sensor_05 == 50)
+                            {
+                                btn_B2_B2.setBackgroundResource(R.drawable.parking_red);
+                                btn_B3_B2.setBackgroundResource(R.drawable.parking_red);
+                            }
+                            else
+                            {
+                                btn_B2_B2.setBackgroundResource(R.drawable.parking_blue);
+                                btn_B3_B2.setBackgroundResource(R.drawable.parking_blue);
+                            }
+
+                            // B3의 센서 코드 값이 60이면 감지된 것 이다.
+                           if (sensor_06 == 60)
+                            {
                                 btn_B2_B3.setBackgroundResource(R.drawable.parking_red);
-                                park_rumber++;
+                                btn_B3_B3.setBackgroundResource(R.drawable.parking_red);
+                            }
+                            else
+                            {
+                                btn_B2_B3.setBackgroundResource(R.drawable.parking_blue);
+                                btn_B3_B3.setBackgroundResource(R.drawable.parking_blue);
                             }
 
                         }
